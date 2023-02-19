@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/48de8d29a3.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script>
+        function clicking()
+        {
+        document.getElementById("playing").style.display = "inline-block";
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+
+
+
+    <div class="left sticky">
+        <img src="./assets/logo.png" class="logo">
+        <div class="home">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
+
+        </div>
+          
+
+        <div class="search">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+            <p>Search</p>
+
+        </div>
+
+        <div class="library">
+            
+            <p>Your Library</p>
+
+        </div>
+        <div class="playlist">
+            
+            <i class="fa-solid fa-plus"></i>
+            <p>Create Playlist</p>
+
+        </div>
+        <div class="likedSongs">
+            <i class="fa-solid fa-heart"></i>
+            <p>Liked Songs</p>
+
+        </div>
+    </div>
+
+
+    <div class="right">
+        <nav>
+            <div class="icons">
+                <i class="fa-solid fa-angle-left"></i>
+                <i class="fa-solid fa-angle-right"></i>
+
+            </div>
+
+
+            <div class="links">
+                <button id="btn1">Sign up</button>
+                <button id="btn2">Login</button>
+            </div>
+        </nav>
+
+        <div class="bottom">
+            <div class="focus">
+                <h2 id="focus" >Focus</h2>
+                <h5 id="show">SHOW ALL</h5>
+            </div>
+
+            <div class="songs-container">
+
+                <button id="btn" onclick="clicking()">
+
+                    <div class="songs">
+                        <img src="./assets/1.jpeg" alt="">
+                        <h4>Peaceful piano</h4>
+                        <p>Relax and indulge with beautiful piano pieces</p>
+                    </div>
+                </button>
+                <div class="songs">
+                    <img src="./assets/2.jpeg" alt="">
+                    <h4>Deep Focus</h4>
+                    <p>Keep calm and focus with ambient and post</p>
+
+                </div>
+                <div class="songs">
+                    <img src="./assets/3.jpeg" alt="">
+                    <h4>Instrumental Study</h4>
+                    <p>Focus with soft study music by clicking here</p>
+
+                </div>
+                <div class="songs">
+
+                    <img src="./assets/4.jpeg" alt="">
+                    <h4>chilli lofi study beats</h4>
+                    <p>The perfect study beats.</p>
+
+                </div>
+                <div class="songs">
+
+                    <img src="./assets/5.jpeg" alt="">
+                    <h4>Jazz Vibes</h4>
+                    <p>The original chill Instrumental beats...</p>
+
+                </div>
+
+            
+
+                
+
+                
+             
+
+            </div>
+            <div class="focus">
+                <h2 id="focus" >Spotify Playlist</h2>
+                <h5 id="show">SHOW ALL</h5>
+            </div>
+
+            <div class="songs-container second">
+
+                <div class="songs">
+                    <img src="./assets/6.jpeg" alt="">
+                    <h4>Today's top hits</h4>
+                    <p>Relax and indulge with beautiful piano pieces</p>
+                </div>
+                <div class="songs">
+                    <img src="./assets/7.jpeg" alt="">
+                    <h4>RapCaviar</h4>
+                    <p>Keep calm and focus with ambient and post</p>
+
+                </div>
+                <div class="songs">
+                    <img src="./assets/8.jpeg" alt="">
+                    <h4>ALl out 2010s</h4>
+                    <p>Focus with soft study music by clicking here</p>
+
+                </div>
+                <div class="songs">
+
+                    <img src="./assets/9.jpeg" alt="">
+                    <h4>Rock Classics</h4>
+                    <p>The perfect study beats. Find your focus</p>
+
+                </div>
+                <div class="songs">
+
+                    <img src="./assets/10.jpeg" alt="">
+                    <h4>Chill Hits</h4>
+                    <p>The original chill Instrumental beats...</p>
+
+                </div>
+
+            
+
+                
+
+                
+             
+
+            </div>
+
+
+
+
+        </div>
+        <nav id="playing">
+            <div class="name">
+                
+                <h4>Kesariya from Brahmastra</h4>
+                <p>Pritam, Shreya Ghoshal, Tushar</p>
+            </div>
+    
+            <div class="controls">
+                <i class="fa-sharp fa-solid fa-circle-play" id="play"></i>
+                <i class="fa-sharp fa-solid fa-circle-pause" id="pause"></i>
+
+                <div class="progress">
+                    <input type="range" name="range" id="myProgress" min="0"  value="0" max="100" >
+                </div>
+            </div>
+
+           
+    
+    
+        </nav>
+       
+       
+    </div>
+    
+   
+
+
+</div>
+
+<script>
+    let a = new Audio('Kesariya.mp3');
+
+let myProgress = document.getElementById('myProgress');
+
+let masterPlay = document.getElementById('play');
+let masterPause = document.getElementById('pause');
+
+masterPlay.addEventListener('click',()=>{
+     a.play();
+})
+
+masterPause.addEventListener('click',()=>{
+     a.pause();
+})
+
+
+
+a.addEventListener('timeupdate',()=>{
+    progress = parseInt((a.currentTime/a.duration)*100);
+    console.log(progress);
+    myProgress.value = progress;
+})
+
+myProgress.addEventListener('change',()=>{
+    a.currentTime = myProgress.value * a.duration/100;
+})
+
+</script>
+
+
+
+
+   
+    
+</body>
+</html>
